@@ -41,7 +41,16 @@ class TagList < Array
     }
     self
   end
-
+  
+  # Check if a specific tag is present in the tag_list.
+  #
+  #  tag_list.include?("Happy")
+  #
+  # This method is case insensitive. 
+  def include?(name)
+    self.map(&:downcase).include?(name.downcase())
+  end
+  
   def -(other)
     dup.remove(other)
   end
